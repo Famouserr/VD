@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine? 💝</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            position: relative;
+        }
+        img {
+            max-width: 400px; /* Increased size */
+            max-height: 400px; /* Increased size */
+            margin-bottom: 20px;
+        }
+        .bottom-buttons button, .top-buttons button {
+            margin: 5px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .yes-button {
+            background-color: green;
+            color: white;
+        }
+        .no-button {
+            background-color: red;
+            color: white;
+        }
+        .top-left {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .conditions-button, .benefits-button {
+            background-color: green;
+            color: white;
+        }
+	
+    </style>
+    <script>
+        function showConditionsMessage() {
+            alert("Conditions: \n1. Need Pom Pom🍊🍊 \n2. You'll have to wash your hands after eating\n3. Have to send your pic daily or atleast once a week🥰🥰 \n4. Have to watch Isekai Anime with me😒😒\n5. Pom Pom 🤤😍😘");
+        }
+
+        function showBenefitsMessage() {
+            alert("Benefits: \n1. You will get a partner who will watch and talk about BL with you.\n2. You will have someone who will listen about toxic Red Flag and believe he will turn Green\n3. You can kiss me daily until you are satisfied \n4. You will have someone you can give 👅👌🏼");
+        }
+
+        var noButtonClicks = 0;
+
+        function showNoMessage() {
+            noButtonClicks++;
+
+            // Remove previous message if any
+            var previousMessage = document.querySelector('.container p');
+            if (previousMessage) {
+                previousMessage.remove();
+            }
+
+            if (noButtonClicks === 1) {
+                var container = document.querySelector('.container');
+                var noMessage = document.createElement('p');
+                noMessage.textContent = "😳 Why you clicked No.Please Nia, please accept it...🥺🥺🥺";
+                container.appendChild(noMessage);
+            } else if (noButtonClicks === 2) {
+                var container = document.querySelector('.container');
+                var noMessage = document.createElement('p');
+                noMessage.textContent = "This is the last chance to say yes😒😒. Don't you dare to click No.😤";
+                container.appendChild(noMessage);
+            } else if (noButtonClicks === 3) {
+                // Remove the No button
+                document.querySelector('.bottom-buttons button:nth-child(2)').remove();
+
+                // Add image and text below
+                var container = document.querySelector('.container');
+                var img = document.createElement('img');
+                img.src = 'https://pbs.twimg.com/media/F6oeuqbboAAIm_J.jpg'; // Replace with your image URL
+                img.alt = 'Left Image';
+                img.style.maxWidth = '200px';
+                img.style.maxHeight = '200px';
+		img.style.position = 'absolute';
+                img.style.top = '100%';
+		img.style.right = '600px';
+                img.style.transform = 'translateY(-50%)';
+                container.appendChild(img);
+
+                var text = document.createElement('p');
+                text.textContent = 'Just fucking click Yes , If you click Yes you will see my Character Development';
+                container.appendChild(text);
+
+ // Add another image
+                var anotherImg = document.createElement('img');
+                anotherImg.src = 'https://i.pinimg.com/736x/ce/72/95/ce729500ad993248c2ed7719e7ca93dc.jpg'; // Replace with your image URL
+                anotherImg.alt = 'Another Image';
+                anotherImg.style.maxWidth = '200px';
+                anotherImg.style.maxHeight = '200px';
+                anotherImg.style.position = 'absolute';
+		anotherImg.style.top = '80%';
+                anotherImg.style.left = '600px'; // Adjust left position as needed
+                anotherImg.style.bottom = '10px'; // Adjust bottom position as needed
+                container.appendChild(anotherImg);
+            }
+        }
+
+        function showYesContent() {
+            // Clear the page
+            document.querySelector('.container').innerHTML = '';
+
+            // Add image and text
+            var container = document.querySelector('.container');
+            var img = document.createElement('img');
+            img.src = 'https://media1.tenor.com/m/nm1fYmkO4XcAAAAC/thank-you-thanks.gif'; // Replace with your image URL
+            img.alt = 'Center Image';
+	    img.style.maxWidth = '200px'; /* Adjusted size */
+            img.style.maxHeight = '200px';
+            container.appendChild(img);
+
+            var text = document.createElement('p');
+            text.textContent = 'Thank you for saying yes!';
+            container.appendChild(text);
+
+            // Hide Conditions and Benefits buttons
+            document.querySelector('.conditions-button').style.display = 'none';
+            document.querySelector('.benefits-button').style.display = 'none';
+
+            // Add 4 images at specific positions
+            var imageUrls = [
+                'https://media.tenor.com/aN9t4Ec1c7QAAAAi/loved-jun-lemon.gif',
+                'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3db4e71c-8aa6-4e2f-b401-783f13899fe2/dd4t1q2-75a1974f-5030-4727-84c2-2061d8ccba70.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNkYjRlNzFjLThhYTYtNGUyZi1iNDAxLTc4M2YxMzg5OWZlMlwvZGQ0dDFxMi03NWExOTc0Zi01MDMwLTQ3MjctODRjMi0yMDYxZDhjY2JhNzAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.oq7IoOlnR_JsGmrF4LII-85b6v2eTTcQvF9CE7uPlDc',
+                'https://media.baamboozle.com/uploads/images/266947/1644869178_173413_gif-url.gif',
+                'https://media.tenor.com/N3RMMTlreQoAAAAi/lily-and-marigold.gif',
+'https://media1.tenor.com/m/nHKUzlZoSjkAAAAC/lily-marigold-jun-lemon.gif',
+'https://i.pinimg.com/originals/75/a5/76/75a5767ac8120221d2bc077948cbc9b7.gif',
+'https://i.pinimg.com/originals/4e/bb/b6/4ebbb62bdc3ff9b615e2ea9fd191e073.gif',
+'https://i.pinimg.com/originals/e9/3a/de/e93adec4c7cd967c42ba58e00fb30a58.gif',
+'https://i.pinimg.com/originals/87/cc/d2/87ccd2832483245dc510e858e46ec8ec.gif',
+'https://i.pinimg.com/originals/d1/9f/d9/d19fd9f15d513a00b658d12ca6951690.gif',
+'https://i.pinimg.com/originals/cd/0a/20/cd0a20fef75ed3cc003889583b99bc74.gif',
+'https://i.pinimg.com/originals/3b/95/d7/3b95d7478022fb2adacf9c777c51c824.gif',
+'https://i.pinimg.com/originals/93/e3/d5/93e3d542ee6baad5a1511c85c6a3e789.gif',
+'https://i.pinimg.com/originals/9e/2c/3c/9e2c3c5866d49931339d03f7d2a9d030.gif',
+'https://i.pinimg.com/originals/41/df/94/41df9483dfdc409838f4385835d754de.gif',
+'https://i.pinimg.com/originals/f4/24/c8/f424c8d809967ce77e798c95a9e1ec0b.gif',
+'https://i.pinimg.com/originals/b3/0e/4c/b30e4c2b89a931058a73efa84d0437b0.gif',
+'https://i.pinimg.com/originals/33/eb/05/33eb05468704b25cd73442d94559b9ae.gif',
+'https://i.pinimg.com/originals/1b/24/2e/1b242ed099ea5c694bbcb5b62556d695.gif',
+'https://i.pinimg.com/originals/b1/ec/f9/b1ecf9978b5da494a3b34c732a455d67.gif',
+
+'https://i.pinimg.com/564x/54/eb/fb/54ebfb818409d86cabeee2a6ebc6a591.jpg',
+'https://i.pinimg.com/564x/ff/7e/2e/ff7e2e8bbb4f800adf3d8b882157abc9.jpg',
+'https://i.pinimg.com/564x/7f/56/3b/7f563bc28494148002059ce8c9198082.jpg',
+'https://i.pinimg.com/564x/1c/ad/43/1cad43f0a253bf54bf327e79c14dd976.jpg',
+'https://i.pinimg.com/564x/95/99/20/95992075ff44b872794bf5a03337e850.jpg',
+'https://i.pinimg.com/564x/c0/b1/00/c0b100b9218dd634601f0b48fb6b575e.jpg',
+
+'https://i.pinimg.com/564x/0a/8c/9b/0a8c9b66ee7cf4ee2c861bfe85a61bd4.jpg',
+'https://i.pinimg.com/564x/7c/72/49/7c72498a3562f7c5f3abaa5cbddbf792.jpg',
+
+'https://i.pinimg.com/564x/65/37/85/6537857c4b660ba35f455e7205b82dba.jpg',
+
+'https://i.pinimg.com/564x/6c/4a/57/6c4a5711c8753fb5a1c891e00fe699d7.jpg'
+
+
+            ];
+
+            var positions = [
+                { left: '200px', top: '100px' },
+                { left: '-200px', top: '100px' },
+                { left: '50px', top: '300px' },
+                { left: '180px', top: '300px' },
+                { left: '-100px', top: '300px' },
+                { left: '-250px', top: '300px' },
+                { left: '-400px', top: '300px' },
+                { left: '-550px', top: '300px' },
+                { left: '-700px', top: '300px' },
+                { left: '300px', top: '300px' },
+		{ left: '430px', top: '300px' },
+		{ left: '550px', top: '300px' },
+		{ left: '700px', top: '300px' },
+		{ left: '-650px', top: '100px' },
+		{ left: '-500px', top: '100px' },
+		{ left: '-350px', top: '100px' },
+		{ left: '300px', top: '100px' },
+		{ left: '430px', top: '100px' },
+		{ left: '550px', top: '100px' },
+		{ left: '700px', top: '100px' },
+
+		{ left: '720px', top: '-130px' },
+		{ left: '620px', top: '-130px' },
+		{ left: '470px', top: '-130px' },
+		{ left: '320px', top: '-130px' },
+		{ left: '190px', top: '-130px' },
+		{ left: '-140px', top: '-130px' },
+		{ left: '-290px', top: '-130px' },
+		{ left: '-440px', top: '-130px' },
+		{ left: '-650px', top: '-130px' },
+		{ left: '0px', top: '-150px' },
+            ];
+
+            for (var i = 0; i < imageUrls.length; i++) {
+                var additionalImg = document.createElement('img');
+                additionalImg.src = imageUrls[i];
+                additionalImg.alt = 'Extra Image ' + (i + 1);
+                additionalImg.style.position = 'absolute';
+                additionalImg.style.left = positions[i].left;
+                additionalImg.style.top = positions[i].top;
+		additionalImg.style.maxWidth = '150px'; /* Adjusted size */
+                additionalImg.style.maxHeight = '150px'; /* Adjusted size */
+                container.appendChild(additionalImg);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="top-left">
+        <button class="conditions-button" onclick="showConditionsMessage()">Conditions</button>
+    </div>
+    <div class="container">
+        <img src="https://i.ytimg.com/vi/wrRVv6SAySA/maxresdefault.jpg">
+        <h1>Will you be my Valentine?</h1>
+        <div class="bottom-buttons">
+            <button class="yes-button" onclick="showYesContent()">Yes</button>
+            <button class="no-button" onclick="showNoMessage()">No</button>
+        </div>
+    </div>
+    <div class="top-right">
+        <button class="benefits-button" onclick="showBenefitsMessage()">Benefits</button>
+    </div>
+</body>
+</html>
